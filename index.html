@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conversor</title>
+  <style>
+    
+    body {
+  font-family: "Roboto Mono", monospace;
+  background: linear-gradient(90deg, rgba(245,40,109,1) 0%, rgba(251,67,77,1) 80%);
+  background-size: 100%;
+}
+
+.container {
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  padding: 15px;
+  height: 600px;
+  width: 500px;
+  text-align: center;
+}
+
+.page-title {
+  color: #fb434d;
+  margin: 0 0 5px;
+}
+
+.page-subtitle {
+  color: #ffffff;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 20px;
+}
+.alura-logo {
+  position: absolute;
+  width: 5%;
+  top: 5%;
+  left: 90%;
+}
+
+input {
+  /*o valor do label está sobre input, logo tenho que aumentar o valro do input para aumentar a label*/
+  border-radius: 15px;
+  border-color: #fb434d;
+  padding: 15px;
+  width: 400px;
+  font-size: 30px;
+  text-align: right;
+  margin: 10px;
+}
+input:hover{
+  background-color: black;
+  border-color: #fb434d;
+  color: white;
+}
+
+label {
+  color: white;
+  font-size: 20px;
+  margin: 10px;
+
+}
+.opcoes{
+  text-align: center;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+}
+#converter {
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  border-color: black;
+  background-color: #fb434d;
+  color: black;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 20px;
+  font-family: 'Roboto Mono',monospace;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 100%;
+  font-weight: bold;
+ }
+
+#converter:hover{
+  background-color: white;
+}
+#limpar{
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  border-color: black;
+  background-color: #fb434d;
+  color: black;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 20px;
+  font-family: 'Roboto Mono',monospace;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 90%;
+  font-weight: bold;
+}
+#limpar:hover{
+  background-color: white;
+}
+.resultados{
+  color: #ffffff;
+  font-size: 25px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 85%;
+  top: 50%;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 15px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  width: 400px;
+}
+.nome{
+  position: absolute;
+  transform: translateY(-50%);
+  background-color: white;
+  top: 5%;
+  border-radius: 5px;
+  padding: 5px;
+  border-width: 2px;
+  border-style: solid;
+
+}
+</style>
+</head>
+<body>
+  <div class="container">
+  <h1 class="page-title">
+    Conversor de moedas
+  </h1>
+  <p class="page-subtitle">
+    Realize a conversão de Valores
+  </p>
+  <div class="opcoes">
+    <label for="valorDollar">Insira o valor em Dollar</label><br>
+    <input type="number" id="valorDollar" size="2" /><br>
+    <label for="valorLibra">Insira o valor em Libra esterlina</label><br>
+    <input type="number" id="valorLibra" size="2" /><br>
+    <label for="valorEuro">Insira o valor em Euro</label><br>
+    <input type="number" id="valorEuro" size="2" /><br>
+    <label for="valorDogeCoin">Insira o valor em DogeCoins</label><br>
+    <input type="number" id="valorDogeCoin" size="2" /><br>
+  </div>
+  <button type="submit" onclick="converter()" id="converter">Converter</button>
+  <button type="submit" onclick="limpar()" id="limpar">Limpar</button>
+</div>
+  <h2 class="nome">Desenvolvido por Matheus Souza Marques</h2>
+  <div class="resultados">
+    <h2>Resultados</h2>
+    <div id="clear">
+    <p id="conversaoDollar"></p>
+    <p id="conversaoEuro"></p>
+    <p id="conversaoLibra"></p>
+    <p id="conversaoDoge"></p>
+    </div>
+  </div>
+  <a href="https://alura.com.br/" target="_blank">
+  <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
+
+  <script>
+  function limpar(){
+    document.getElementById('conversaoDollar').innerHTML = "";
+    document.getElementById('conversaoEuro').innerHTML = "";
+    document.getElementById('conversaoDoge').innerHTML = "";
+    document.getElementById('conversaoLibra').innerHTML = "";
+    document.getElementById('valorDollar').value = "";
+    document.getElementById('valorDogeCoin').value = "";
+    document.getElementById('valorLibra').value = "";
+    document.getElementById('valorEuro').value = "";
+  }
+  
+  function converter(){
+  var dollar = parseFloat(document.getElementById("valorDollar").value);
+  var libra = parseFloat(document.getElementById("valorLibra").value);
+  var euro = parseFloat(document.getElementById("valorEuro").value);
+  var dogeCoin = parseFloat(document.getElementById("valorDogeCoin").value);
+  
+  var convertDollar = dollar * 5.08;
+  var convertLibra = libra * 6.66;
+  var convertEuro = euro * 5.55;
+  var convertDoge = dogeCoin * 0.60;
+  
+  convertDollar = convertDollar.toFixed(2);
+  convertLibra = convertLibra.toFixed(2);
+  convertEuro = convertEuro.toFixed(2);
+  convertDoge = convertDoge.toFixed(2);
+  if (dollar && libra && euro && dogeCoin){
+    document.querySelector("#conversaoDollar").innerHTML = `Convertendo o dollar você tem ${convertDollar} reais.`;
+    document.querySelector("#conversaoEuro").innerHTML = `Convertendo o euro você tem ${convertEuro} reais`;
+    document.querySelector("#conversaoLibra").innerHTML = `Convertendo a libra você tem ${convertLibra} reais.`;
+    document.querySelector("#conversaoDoge").innerHTML = `Convertendo o DogeCoin você tem ${convertDoge} reais.`;
+  } else if (dollar){
+    document.querySelector("#conversaoDollar").innerHTML = `Você tem ${convertDollar} dollares.`;
+  } else if (libra){
+    document.querySelector("#conversaoLibra").innerHTML = `Você tem ${convertLibra} libras esterlinas.`;
+  } else if (euro) {
+    document.querySelector("#conversaoEuro").innerHTML = `Você tem ${convertEuro} euros`;
+  } else if (dogeCoin) {
+    document.querySelector("#conversaoDoge").innerHTML = `Você tem ${convertDoge} DogeCoins.`;
+  } else{
+    function avaria (){
+      var matriz = [dollar, libra, euro, dogeCoin];
+      matriz.filter(valorp => valorp >0)
+      console.log(matriz);
+    }
+  }
+  }
+  </script>
+</body>
+</html>
