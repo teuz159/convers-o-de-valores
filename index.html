@@ -23,6 +23,28 @@
   height: 600px;
   width: 500px;
   text-align: center;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-50%);
+  }
+  20%{
+    transform: translateY(-55%);
+  }
+  40%{
+    transform: translateY(-50%);
+  }
+  60%{
+    transform: translateY(-55%);
+  }
+  100%{
+    transform: translateY(-50%);
+  }
 }
 
 .page-title {
@@ -44,7 +66,6 @@
 }
 
 input {
-  /*o valor do label está sobre input, logo tenho que aumentar o valro do input para aumentar a label*/
   border-radius: 15px;
   border-color: #fb434d;
   padding: 15px;
@@ -117,7 +138,7 @@ label {
   font-size: 25px;
   position: absolute;
   transform: translate(-50%, -50%);
-  left: 85%;
+  left: 20%;
   top: 50%;
   background-color: white;
   color: black;
@@ -202,8 +223,8 @@ label {
   convertLibra = convertLibra.toFixed(2);
   convertEuro = convertEuro.toFixed(2);
   convertDoge = convertDoge.toFixed(2);
-  
-   if (dollar && libra && euro && dogeCoin){
+
+  if (dollar && libra && euro && dogeCoin){
     document.querySelector("#conversaoDollar").innerHTML = `Convertendo o dollar você tem ${convertDollar} reais.`;
     document.querySelector("#conversaoEuro").innerHTML = `Convertendo o euro você tem ${convertEuro} reais`;
     document.querySelector("#conversaoLibra").innerHTML = `Convertendo a libra você tem ${convertLibra} reais.`;
