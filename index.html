@@ -202,7 +202,8 @@ label {
   convertLibra = convertLibra.toFixed(2);
   convertEuro = convertEuro.toFixed(2);
   convertDoge = convertDoge.toFixed(2);
-  if (dollar && libra && euro && dogeCoin){
+  
+   if (dollar && libra && euro && dogeCoin){
     document.querySelector("#conversaoDollar").innerHTML = `Convertendo o dollar você tem ${convertDollar} reais.`;
     document.querySelector("#conversaoEuro").innerHTML = `Convertendo o euro você tem ${convertEuro} reais`;
     document.querySelector("#conversaoLibra").innerHTML = `Convertendo a libra você tem ${convertLibra} reais.`;
